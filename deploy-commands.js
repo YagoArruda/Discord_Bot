@@ -29,7 +29,7 @@ const rest = new REST({ version: "10" }).setToken(TOKEN);
 
         //put
         const data = await rest.put(
-            Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
+            Routes.applicationCommands(CLIENT_ID),//Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),//O Guild ID faz funcionar somente em um servidor
             { body: commands }
         )
         console.log("Comandos registrados")
