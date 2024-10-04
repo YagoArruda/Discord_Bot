@@ -1,4 +1,5 @@
 const user = require('../../models/userModel.js');
+const userDataManagerRef = require("../config/databaseCalls/pontes/userManager.js");
 
 class Encontrar {
     constructor(db) {
@@ -16,6 +17,8 @@ class Encontrar {
                 return result;
             } else {
                 console.log("Usuário não encontrado.");
+                const userDataManager = new userDataManagerRef(db);
+                userDataManager.criarUsuario(this.connection, nome);
                 return null;
             }
         }
